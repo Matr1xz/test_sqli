@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CTF Search</title>
+</head>
+<body>
+  <p>Logged in as: <b>{{ user }}</b> | <a href="/logout">Logout</a></p>
+  <h2>Search Customers</h2>
+
+  <form method="post">
+    <label>Keyword:</label>
+    <input name="keyword" placeholder="Enter name keyword">
+    <button type="submit">Search</button>
+  </form>
+
+  {% if debug_query %}
+    <h3>Debug SQL Query</h3>
+    <pre>{{ debug_query }}</pre>
+  {% endif %}
+
+  {% if error %}
+    <p style="color:red">SQL Error: {{ error }}</p>
+  {% endif %}
+
+  <h3>Results</h3>
+  <ul>
+    {% for r in rows %}
+      <li>#{{ r["id"] }} - {{ r["name"] }} ({{ r["email"] }})</li>
+    {% else %}
+      <li>No results</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

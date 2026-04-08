@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CTF Login</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <p>Use: <b>alice:alice</b></p>
+  {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+  <form method="post">
+    <label>Username:</label>
+    <input name="username" required>
+    <br><br>
+    <label>Password:</label>
+    <input name="password" type="password" required>
+    <br><br>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

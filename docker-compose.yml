@@ -1,0 +1,7 @@
+services:
+  sqli-lab:
+    build: .
+    container_name: sqli-ctf-lab
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
